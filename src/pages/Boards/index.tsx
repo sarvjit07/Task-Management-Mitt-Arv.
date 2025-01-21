@@ -46,53 +46,57 @@ const Home = () => {
         onDragEnd={(result: any) => onDragEnd(result, columns, setColumns)}
       >
         <div className="w-full flex flex-wrap items-start justify-center px-5 pb-8 gap-5">
-          {Object.entries(columns)
-            .filter(([_, column]: any) =>
-              column.items.some(
-                (task: any) =>
-                  task.title.toLowerCase().includes(searchQuery) ||
-                  task.description.toLowerCase().includes(searchQuery)
-              )
+        {Object.entries(columns).map(([columnId, column]: any) => (
+  <div
+    className="flex flex-col gap-3 sm:w-[290px] w-full lg:w-[250px]"
+    key={columnId}
+  >
+    <Droppable droppableId={columnId} key={columnId}>
+      {(provided: any) => (
+        <div
+          ref={provided.innerRef}
+          {...provided.droppableProps}
+          className="flex flex-col gap-3 items-center py-5"
+        >
+          <div className="flex items-center justify-center py-[10px] w-full bg-white rounded-lg shadow-sm text-[#555] font-medium text-[15px] sm:text-[18px] md:text-[20px]">
+            {column.name}
+          </div>
+
+          {/* Filter tasks based on the search query */}
+          {column.items
+            .filter(
+              (task: any) =>
+                task.title.toLowerCase().includes(searchQuery) ||
+                task.description.toLowerCase().includes(searchQuery)
             )
-            .map(([columnId, column]: any) => (
-              <div
-                className="flex flex-col gap-3 sm:w-[290px] w-full lg:w-[250px]"
-                key={columnId}
+            .map((task: any, index: any) => (
+              <Draggable
+                key={task.id.toString()}
+                draggableId={task.id.toString()}
+                index={index}
               >
-                <Droppable droppableId={columnId} key={columnId}>
-                  {(provided: any) => (
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.droppableProps}
-                      className="flex flex-col gap-3 items-center py-5"
-                    >
-                      <div className="flex items-center justify-center py-[10px] w-full bg-white rounded-lg shadow-sm text-[#555] font-medium text-[15px] sm:text-[18px] md:text-[20px]">
-                        {column.name}
-                      </div>
-                      {/* Filter tasks based on the search query */}
-                      {column.items
-                        .filter(
-                          (task: any) =>
-                            task.title.toLowerCase().includes(searchQuery) ||
-                            task.description.toLowerCase().includes(searchQuery)
-                        )
-                        .map((task: any, index: any) => (
-                          <Draggable
-                            key={task.id.toString()}
-                            draggableId={task.id.toString()}
-                            index={index}
-                          >
-                            {(provided: any) => (
-                              <Task provided={provided} task={task} />
-                            )}
-                          </Draggable>
-                        ))}
-                      {provided.placeholder}
-                    </div>
-                  )}
-                </Droppable>
-              </div>
+                {(provided: any) => (
+                  <Task provided={provided} task={task} />
+                )}
+              </Draggable>
             ))}
+
+          {/* Placeholder for empty columns */}
+          {column.items.filter(
+            (task: any) =>
+              task.title.toLowerCase().includes(searchQuery) ||
+              task.description.toLowerCase().includes(searchQuery)
+          ).length === 0 && (
+            <div className="text-gray-400 text-sm italic">No tasks found</div>
+          )}
+
+          {provided.placeholder}
+        </div>
+      )}
+    </Droppable>
+  </div>
+))}
+
         </div>
       </DragDropContext>
 
