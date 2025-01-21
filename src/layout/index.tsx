@@ -6,7 +6,9 @@ const Layout = () => {
 	return (
 		<div className="w-screen h-screen relative">
 			<Sidebar />
-			<Navbar />
+			<Navbar onSearch={function (_query: string): void {
+				throw new Error("Function not implemented.");
+			} } />
 			<div className="md:pl-[250px] pl-[60px] pr-[20px] pt-[70px] w-full h-full overflow-y-auto">
 				<Outlet />
 			</div>
