@@ -42,7 +42,7 @@ Installation
 Clone the repository:----->
 
 bash
-[git clone https://github.com/sarvjit07/Task-Management-Mitt-Arv.git]
+https://github.com/sarvjit07/Task-Management-Mitt-Arv.
 
 
 Navigate to the project directory:----->
