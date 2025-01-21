@@ -47,7 +47,7 @@ const Home = () => {
       >
         <div className="w-full flex items-start justify-center px-5 pb-8 gap-5">
           {Object.entries(columns)
-            .filter(([columnId, column]: any) => 
+            .filter(([_, column]: any) => 
               column.items.some(
                 (task: any) =>
                   task.title.toLowerCase().includes(searchQuery) ||
