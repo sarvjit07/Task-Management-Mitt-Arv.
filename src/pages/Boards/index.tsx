@@ -45,9 +45,9 @@ const Home = () => {
       <DragDropContext
         onDragEnd={(result: any) => onDragEnd(result, columns, setColumns)}
       >
-        <div className="w-full flex items-start justify-center px-5 pb-8 gap-5">
+        <div className="w-full flex flex-wrap items-start justify-center px-5 pb-8 gap-5">
           {Object.entries(columns)
-            .filter(([_, column]: any) => 
+            .filter(([_, column]: any) =>
               column.items.some(
                 (task: any) =>
                   task.title.toLowerCase().includes(searchQuery) ||
@@ -55,15 +55,18 @@ const Home = () => {
               )
             )
             .map(([columnId, column]: any) => (
-              <div className="flex flex-col gap-0" key={columnId}>
+              <div
+                className="flex flex-col gap-3 sm:w-[290px] w-full lg:w-[250px]"
+                key={columnId}
+              >
                 <Droppable droppableId={columnId} key={columnId}>
                   {(provided: any) => (
                     <div
                       ref={provided.innerRef}
                       {...provided.droppableProps}
-                      className="flex flex-col md:w-[290px] w-[250px] gap-3 items-center py-5"
+                      className="flex flex-col gap-3 items-center py-5"
                     >
-                      <div className="flex items-center justify-center py-[10px] w-full bg-white rounded-lg shadow-sm text-[#555] font-medium text-[15px]">
+                      <div className="flex items-center justify-center py-[10px] w-full bg-white rounded-lg shadow-sm text-[#555] font-medium text-[15px] sm:text-[18px] md:text-[20px]">
                         {column.name}
                       </div>
                       {/* Filter tasks based on the search query */}
@@ -103,7 +106,7 @@ const Home = () => {
       {/* Floating Button to Open Add Task Modal */}
       <button
         onClick={openModal}
-        className="fixed bottom-10 right-10 p-4 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600 transition"
+        className="fixed bottom-10 right-10 p-4 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600 transition sm:p-5 lg:p-6"
       >
         <AddOutline color={"#fff"} />
       </button>
@@ -112,4 +115,3 @@ const Home = () => {
 };
 
 export default Home;
-
