@@ -10,7 +10,7 @@ https://task-management-mitt-arv.vercel.app/
 GitHub Link:----->
 
 The source code for the project is available on GitHub.
-https://github.com/sarvjit07/Task-Management-Mitt-Arv.
+https://github.com/sarvjit07/Task-Management-Mitt-Arv..git
 
 
 Technologies Used:----->
