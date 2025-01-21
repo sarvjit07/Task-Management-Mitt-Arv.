@@ -87,7 +87,7 @@ const Home = () => {
               task.title.toLowerCase().includes(searchQuery) ||
               task.description.toLowerCase().includes(searchQuery)
           ).length === 0 && (
-            <div className="text-gray-400 text-sm italic">No tasks found</div>
+            <div className="text-yellow-500 text-sm italic">No tasks found</div>
           )}
 
           {provided.placeholder}
