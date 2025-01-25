@@ -55,6 +55,24 @@ Install dependencies:----->
 bash
 npm install
 
+
+
+Dependencies ------>
+
+Main Dependencies:
+react: ^18.3.1
+react-beautiful-dnd: ^13.1.1
+tailwindcss: ^3.4.17
+styled-components: ^6.1.14
+
+Development Dependencies:
+eslint: ^9.17.0
+typescript: ~5.6.2
+vite: ^6.0.5
+
+
+
+
 Running the Application:----->
 
 To run the application in development mode, use the following command:
@@ -74,6 +92,63 @@ Previewing the Build:----->
 
 To preview the production build, use the following command:
 npm run preview
+
+
+Folder Structure ----->
+
+react-task-management/
+├── node_modules/
+├── public/
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   │   ├── bg.jpg
+│   │   │   ├── task.jpg
+│   │   │   ├── task2.jpg
+│   │   │   ├── task3.jpg
+│   │   │   ├── mittarv-registered-logo-c3982815.svg
+│   │   │   ├── react.svg
+│   ├── components/
+│   │   ├── Modals/
+│   │   │   ├── AddModal.tsx
+│   │   ├── Navbar/
+│   │   │   ├── index.tsx
+│   │   ├── Sidebar/
+│   │   │   ├── index.tsx
+│   │   ├── Task/
+│   │   │   ├── index.tsx
+│   ├── data/
+│   │   ├── board.ts
+│   ├── helpers/
+│   │   ├── getRandomColors.ts
+│   │   ├── onDragEnd.ts
+│   ├── layout/
+│   │   ├── index.tsx
+│   ├── pages/
+│   │   ├── Boards/
+│   │   │   ├── index.tsx
+│   ├── routes/
+│   │   ├── index.tsx
+│   ├── types/
+│   │   ├── index.tsx
+│   ├── App.tsx
+│   ├── css/
+│   │   ├── index.css
+│   ├── main.tsx
+│   ├── vite-env.d.ts
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── README.md
+├── tailwind.config.js
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vite.config.ts
+
 
 
 Linting:----->
